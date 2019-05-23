@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>NetRecipe</title>
 </head>
 <body>
@@ -15,6 +15,37 @@
             <option value="chicken">Chicken</option>
             <option value="vegetable">Vegetable</option>
         </select>
+
+        <label for="balanced">Balanced</label>
+        <input type="checkbox" id="balanced" name="balanced" value="dietLabels=balanced">
+
+        <label for="highProtein">High Protein</label>
+        <input type="checkbox" id="highProtein" name="highProtein" value="dietLabels=high-protein">
+
+        <label for="lowFat">Low Fat</label>
+        <input type="checkbox" id="lowFat" name="lowFat" value="dietLabels=low-fat">
+
+        <label for="lowCarb">Low Carb</label>
+        <input type="checkbox" id="lowCarb" name="lowCarb" value="dietLabels=low-carb">
+
+        <label for="vegan">Vegan</label>
+        <input type="checkbox" id="vegan" name="vegan" value="healthLabels=vegan">        
+
+        <label for="vegetarian">Vegetarian</label>
+        <input type="checkbox" id="vegetarian" name="vegetarian" value="healthLabels=vegetarian">
+
+        <label for="sugarConscious">Sugar Conscious</label>
+        <input type="checkbox" id="sugerConscious" name="sugerConscious" value="Health=vegetarian">
+
+        <label for="peanutFree">Peanut Free</label>
+        <input type="checkbox" id="peanutFree" name="peanutFree" value="healthLabels=peanut-free">
+
+        <label for="treeNutFree">Tree Nut Free</label>
+        <input type="checkbox" id="treeNutFree" name="treeNutFree" value="healthLabels=tree-nut-free">
+
+        <label for="alcoholFree">Alcohol Free</label>
+        <input type="checkbox" id="alcoholFree" name="alcoholFree" value="Health=alcohol-free">
+
         <button>Feed Me</button>
     </form>
         <script
@@ -24,3 +55,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+
