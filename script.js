@@ -63,8 +63,8 @@ $("button").on("click", function(event) {
             app_id: "b5bbacb1",
             app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
             q: mainIngredientValue,
-            diet: ["balanced", "high-protein"],
-            health: ["peanut-free",
+            diet: mainIngredientString,     // diet only accepts one value as a string
+            health: ["peanut-free",         // health accepts multiple values in array
                         "tree-nut-free",
                         "sugar-conscious"] 
         }
