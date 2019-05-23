@@ -35,8 +35,27 @@ const recipeApp = {};
 const $searchForm = $("#recipeForm");
 $("button").on("click", function(event) {
     event.preventDefault();
+
+
+ 
     const mainIngredient = $("#recipeForm :input").val();
     console.log(mainIngredient);
+
+
+    const filters = $(`input[type=checkbox]:checked`);
+    console.log(filters.length);
+
+    const filtersArray = [];
+
+    for (let i = 0; i < filters.length; i++){
+        // filtersArray.push(filters[i].val());
+        filtersArray.push($(filters[i]).val());
+    }
+
+    let filtersString = filtersArray
+    // .join('&');
+
+
     $.ajax({
         url: "https://api.edamam.com/search",
         method: "GET",
@@ -44,13 +63,43 @@ $("button").on("click", function(event) {
         data: {
             app_id: "b5bbacb1",
             app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
-            q: mainIngredient
+            q: mainIngredient,
+            // r: filtersString
         }
     }).then(result => {
         console.log(result);
     }).catch(result => {
         console.log("FAIL");
-    });
-    
+    });    
 
 })
+
+
+
+
+
+
+
+
+//  if ((userChoice).is(':checked') === true) {
+    
+// };
+
+
+
+    // const healthFilter = $(``).val();
+    // const dietLabelFilter = $(``).val();
+    // const healthLabelFilter = $(``).val();
+
+
+    // const healthFilter = .params.health[array];
+    // const dietLabels = .hits[array].recipe.dietLabels;
+    // const healthLabels = .hits[array].recipe.healthLabels;
+
+      // console.log(input[$()])
+
+
+    // console.log($("#recipeForm :input"));
+
+    
+
