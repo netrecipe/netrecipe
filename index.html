@@ -8,10 +8,19 @@
     <title>NetRecipe</title>
 </head>
 <body>
-    <form action="">
-        <input type="text">
+    <form id="recipeForm" action="">
+        <select id="mainIngredient" name="mainIngredient">
+            <option value="beef">Beef</option>
+            <option value="pork">Pork</option>
+            <option value="chicken">Chicken</option>
+            <option value="vegetable">Vegetable</option>
+        </select>
+        <button>Feed Me</button>
     </form>
-
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
 <script src="script.js"></script>
 </body>
 </html>
