@@ -38,22 +38,21 @@ $("button").on("click", function(event) {
 
 
  
-    const mainIngredient = $("#recipeForm :input").val();
-    console.log(mainIngredient);
+    const mainIngredientValue = $("#recipeForm :input").val();
+    console.log(mainIngredientValue);
 
 
-    const filters = $(`input[type=checkbox]:checked`);
-    console.log(filters.length);
+    const dietLabelElements = $(`input.dietLabels[type=checkbox]:checked`);
+    console.log(dietLabelElements.length);
 
-    const filtersArray = [];
+    const dietLabelArgumentsArray = [];
 
-    for (let i = 0; i < filters.length; i++){
-        // filtersArray.push(filters[i].val());
-        filtersArray.push($(filters[i]).val());
+    for (let i = 0; i < dietLabelElements.length; i++){
+        dietLabelArgumentsArray.push($(dietLabelElements[i]).val());
     }
 
-    let filtersString = filtersArray
-    // .join('&');
+    let dietLabelArgumentsString = dietLabelArgumentsArray.join("&");
+    console.log(dietLabelArgumentsString);
 
 
     $.ajax({
@@ -63,8 +62,11 @@ $("button").on("click", function(event) {
         data: {
             app_id: "b5bbacb1",
             app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
-            q: mainIngredient,
-            // r: filtersString
+            q: mainIngredientValue,
+            diet: ["balanced", "high-protein"],
+            health: ["peanut-free",
+                        "tree-nut-free",
+                        "sugar-conscious"] 
         }
     }).then(result => {
         console.log(result);
