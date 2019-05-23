@@ -37,45 +37,54 @@ $("button").on("click", function(event) {
     event.preventDefault();
 
 
- 
-    const mainIngredientValue = $("#recipeForm :input").val();
-    console.log(mainIngredientValue);
+    // get values from form single-value inputs
+    recipeApp.mainIngredientValue = $("#recipeForm :input").val();
+    recipeApp.dietLabel = $(`input.dietLabels[type=radio]:checked`).val();
+    
+    // =========================================================================================
 
+    // get values from checkboxes and push them to app array
 
-    const dietLabelElements = $(`input.dietLabels[type=checkbox]:checked`);
-    console.log(dietLabelElements.length);
-
-    const dietLabelArgumentsArray = [];
-
-    for (let i = 0; i < dietLabelElements.length; i++){
-        dietLabelArgumentsArray.push($(dietLabelElements[i]).val());
+    // ...starting with healthLabels class
+    const healthLabelElements = $(`input.healthLabels[type=checkbox]:checked`);
+    recipeApp.healthLabelArray = [];
+    for (let i = 0; i < healthLabelElements.length; i++){
+        recipeApp.healthLabelArray.push($(healthLabelElements[i]).val());
     }
 
-    let dietLabelArgumentsString = dietLabelArgumentsArray.join("&");
-    console.log(dietLabelArgumentsString);
+    // ...and then the health class
+    const healthElements = $(`input.health[type=checkbox]:checked`);  
+    recipeApp.healthArray = [];
+
+    for (let i = 0; i < healthElements.length; i++){
+        recipeApp.healthArray.push($(healthElements[i]).val());
+    }
 
 
-    $.ajax({
+
+    // =========================================================================================
+
+recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietLabel, recipeApp.healthLabelArray, recipeApp.healthArray);
+})
+   recipeApp.getRecipes = function(mainIngredient, dietLabel, healthLabelArray, healthArray){
+        $.ajax({
         url: "https://api.edamam.com/search",
         method: "GET",
         dataType: "jsonp",
         data: {
             app_id: "b5bbacb1",
             app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
-            q: mainIngredientValue,
-            diet: mainIngredientString,     // diet only accepts one value as a string
-            health: ["peanut-free",         // health accepts multiple values in array
-                        "tree-nut-free",
-                        "sugar-conscious"] 
+            q: mainIngredient,
+            diet: dietLabel,     // diet only accepts one value as a string
+            healthLabels: healthLabelArray,
+            health: healthArray  // health accepts multiple values in array
         }
     }).then(result => {
         console.log(result);
     }).catch(result => {
         console.log("FAIL");
     });    
-
-})
-
+    }
 
 
 
