@@ -36,72 +36,55 @@ const $searchForm = $("#recipeForm");
 $("button").on("click", function(event) {
     event.preventDefault();
 
+// =========================================================================================
+// DROP DOWN - MAIN INGREDIENT
+// =========================================================================================
+    // get values from form single-value inputs
+    recipeApp.mainIngredientValue = $("#recipeForm :input").val();
+    recipeApp.dietLabel = $(`input.dietLabels[type=radio]:checked`).val();
+    
+    // =========================================================================================
 
- 
-    const mainIngredientValue = $("#recipeForm :input").val();
-    console.log(mainIngredientValue);
 
+    // =========================================================================================
+    // CHECKBOXES
+    // =========================================================================================
 
-    const dietLabelElements = $(`input.dietLabels[type=checkbox]:checked`);
-    console.log(dietLabelElements.length);
+    // get values from checkboxes and push them to app array
 
-    const dietLabelArgumentsArray = [];
+    const healthElements = $(`input.health[type=checkbox]:checked`);  
+    recipeApp.healthArray = [];
 
-    for (let i = 0; i < dietLabelElements.length; i++){
-        dietLabelArgumentsArray.push($(dietLabelElements[i]).val());
+    for (let i = 0; i < healthElements.length; i++){
+        recipeApp.healthArray.push($(healthElements[i]).val());
     }
 
-    let dietLabelArgumentsString = dietLabelArgumentsArray.join("&");
-    console.log(dietLabelArgumentsString);
 
 
-    $.ajax({
-        url: "https://api.edamam.com/search",
+    // =========================================================================================
+
+recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietLabel, recipeApp.healthArray);
+})
+   recipeApp.getRecipes = function(mainIngredient, dietLabel, healthArray){
+        $.ajax({
+        url: "https://api.edamam.com/search?q=vegetable&health=peanut-free&health=vegan&health=vegetarian",
         method: "GET",
         dataType: "jsonp",
         data: {
             app_id: "b5bbacb1",
             app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
-            q: mainIngredientValue,
-            diet: mainIngredientString,     // diet only accepts one value as a string
-            health: ["peanut-free",         // health accepts multiple values in array
-                        "tree-nut-free",
-                        "sugar-conscious"] 
+            // q: mainIngredient,
+            diet: dietLabel,     // diet only accepts one value as a string            
+            // health: “health=peanut-free&health=tree-nut-free”  // health accepts multiple values in array
+            // healthLabels: healthLabelArray,
+            
         }
     }).then(result => {
         console.log(result);
     }).catch(result => {
         console.log("FAIL");
     });    
-
-})
-
+    }
 
 
-
-
-
-
-
-//  if ((userChoice).is(':checked') === true) {
-    
-// };
-
-
-
-    // const healthFilter = $(``).val();
-    // const dietLabelFilter = $(``).val();
-    // const healthLabelFilter = $(``).val();
-
-
-    // const healthFilter = .params.health[array];
-    // const dietLabels = .hits[array].recipe.dietLabels;
-    // const healthLabels = .hits[array].recipe.healthLabels;
-
-      // console.log(input[$()])
-
-
-    // console.log($("#recipeForm :input"));
-
-    
 

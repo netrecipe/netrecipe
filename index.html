@@ -15,36 +15,39 @@
             <option value="chicken">Chicken</option>
             <option value="vegetable">Vegetable</option>
         </select>
-
+        
+        <!-- class="dietLabels" -->
         <label for="balanced">Balanced</label>
-        <input type="checkbox" id="balanced" name="balanced" class="dietLabels" value="balanced">
+        <input type="radio" id="balanced" class="diet" name="radio" value="balanced">
 
         <label for="highProtein">High Protein</label>
-        <input type="checkbox" id="highProtein" name="highProtein" class="dietLabels"  value="high-protein">
+        <input type="radio" id="highProtein" class="diet" name="radio" value="high-protein">
 
         <label for="lowFat">Low Fat</label>
-        <input type="checkbox" id="lowFat" class="dietLabels" name="lowFat" value="=low-fat">
+        <input type="radio" id="lowFat" class="diet" name="radio" value="=low-fat">
 
         <label for="lowCarb">Low Carb</label>
-        <input type="checkbox" id="lowCarb" class="dietLabels"  name="lowCarb" value="low-carb">
+        <input type="radio" id="lowCarb" class="diet" name="radio" value="low-carb">
 
+        <!-- class="healthLabels" -->
         <label for="vegan">Vegan</label>
-        <input type="checkbox" id="vegan" name="vegan" value="healthLabels=vegan">        
+        <input type="checkbox" id="vegan" class="health" name="vegan" value="vegan">        
 
         <label for="vegetarian">Vegetarian</label>
-        <input type="checkbox" id="vegetarian" name="vegetarian" value="healthLabels=vegetarian">
-
-        <label for="sugarConscious">Sugar Conscious</label>
-        <input type="checkbox" id="sugerConscious"  name="sugerConscious" value="Health=vegetarian">
-
+        <input type="checkbox" id="vegetarian" class="health" name="vegetarian" value="vegetarian">
+        
         <label for="peanutFree">Peanut Free</label>
-        <input type="checkbox" id="peanutFree" name="peanutFree" value="healthLabels=peanut-free">
-
+        <input type="checkbox" id="peanutFree" class="health" name="peanutFree" value="peanut-free">
+        
         <label for="treeNutFree">Tree Nut Free</label>
-        <input type="checkbox" id="treeNutFree" name="treeNutFree" value="healthLabels=tree-nut-free">
+        <input type="checkbox" id="treeNutFree" class="health" name="treeNutFree" value="tree-nut-free">
+        
+        <!-- class="health" -->
+        <label for="sugarConscious">Sugar Conscious</label>
+        <input type="checkbox" id="sugerConscious" class="health" name="sugerConscious" value="Health=sugar-conscious">
 
         <label for="alcoholFree">Alcohol Free</label>
-        <input type="checkbox" id="alcoholFree" name="alcoholFree" value="Health=alcohol-free">
+        <input type="checkbox" id="alcoholFree" class="health" name="alcoholFree" value="Health=alcohol-free">
 
         <button>Feed Me</button>
     </form>
