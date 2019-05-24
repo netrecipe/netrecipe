@@ -41,13 +41,25 @@ $("button").on("click", function(event) {
 // =========================================================================================
     // get values from form single-value inputs
     recipeApp.mainIngredientValue = $("#recipeForm :input").val();
-    recipeApp.dietLabel = $(`input.dietLabels[type=radio]:checked`).val();
+
+
+    // =========================================================================================
+    // CHECKBOXES - DIET
+    // =========================================================================================
+    // Get values for 'diet' radio buttons
+    recipeApp.dietArray = [];
+
+    recipeApp.dietLabel = $(`input.diet[type=radio]:checked`).val();
+    recipeApp.dietArray.push(recipeApp.dietLabel);
+
+    console.log(recipeApp.dietArray)
+
     
     // =========================================================================================
 
 
     // =========================================================================================
-    // CHECKBOXES
+    // CHECKBOXES - HEALTH
     // =========================================================================================
 
     // get values from checkboxes and push them to app array
@@ -62,10 +74,11 @@ $("button").on("click", function(event) {
 
 
     // =========================================================================================
-    recipeApp.healthArray
-    recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietLabel, recipeApp.healthArray);
+    recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietArray, recipeApp.healthArray);
+
 })
-   recipeApp.getRecipes = function(mainIngredient, dietLabel, healthArray){
+   recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
+       console.log(healthArray);
         $.ajax({
         url: "https://api.edamam.com/search",
         method: "GET",
@@ -74,14 +87,14 @@ $("button").on("click", function(event) {
             app_id: "b5bbacb1",
             app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
             q: mainIngredient,
-            diet: dietLabel,     // diet only accepts one value as a string            
+            diet: dietArray,  // diet only accepts one value as a string            
             health: healthArray  // health accepts multiple values in array
             
-            
-        }
+        },
+        traditional: true
+
     }).then(result => {
         console.log(result);
-        console.log(healthArray)
     }).catch(result => {
         console.log("FAIL");
     });    
