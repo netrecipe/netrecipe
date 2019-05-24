@@ -62,8 +62,8 @@ $("button").on("click", function(event) {
 
 
     // =========================================================================================
-
-recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietLabel, recipeApp.healthArray);
+    recipeApp.healthArray
+    recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietLabel, recipeApp.healthArray);
 })
    recipeApp.getRecipes = function(mainIngredient, dietLabel, healthArray){
         $.ajax({
@@ -75,7 +75,7 @@ recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietLabel, recipeA
             app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
             q: mainIngredient,
             diet: dietLabel,     // diet only accepts one value as a string            
-            health: healthArray,  // health accepts multiple values in array
+            health: healthArray  // health accepts multiple values in array
             
             
         }
