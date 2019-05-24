@@ -58,7 +58,7 @@ $("button").on("click", function(event) {
     for (let i = 0; i < healthElements.length; i++){
         recipeApp.healthArray.push($(healthElements[i]).val());
     }
-
+    console.log(recipeApp.healthArray);
 
 
     // =========================================================================================
@@ -67,20 +67,21 @@ recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietLabel, recipeA
 })
    recipeApp.getRecipes = function(mainIngredient, dietLabel, healthArray){
         $.ajax({
-        url: "https://api.edamam.com/search?q=vegetable&health=peanut-free&health=vegan&health=vegetarian",
+        url: "https://api.edamam.com/search",
         method: "GET",
         dataType: "jsonp",
         data: {
             app_id: "b5bbacb1",
             app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
-            // q: mainIngredient,
+            q: mainIngredient,
             diet: dietLabel,     // diet only accepts one value as a string            
-            // health: “health=peanut-free&health=tree-nut-free”  // health accepts multiple values in array
-            // healthLabels: healthLabelArray,
+            health: healthArray,  // health accepts multiple values in array
+            
             
         }
     }).then(result => {
         console.log(result);
+        console.log(healthArray)
     }).catch(result => {
         console.log("FAIL");
     });    
