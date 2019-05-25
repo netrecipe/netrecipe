@@ -78,6 +78,7 @@ $("button").on("click", function(event) {
 
 })
 recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
+    console.log(healthArray);
     $.ajax({
         url: "https://api.edamam.com/search",
         method: "GET",
@@ -93,8 +94,7 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
         traditional: true
     }).then(result => {
         console.log(result);
-        // recipeApp.recipePull(result)
-        recipeApp.hits = result.hits;
+        recipeApp.recipePull(result)     
     }).catch(result => {
         console.log("FAIL");
     });    
@@ -120,7 +120,7 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
     
 // };
 
-console.log(retrieveResults);
+
 
 // This is a function to pull the recipe so we can drill down and extract JUST the recipes
 recipeApp.recipePull = function(retrievedResults) {
