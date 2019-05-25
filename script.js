@@ -52,7 +52,7 @@ $("button").on("click", function(event) {
     recipeApp.dietLabel = $(`input.diet[type=radio]:checked`).val();
     recipeApp.dietArray.push(recipeApp.dietLabel);
 
-    console.log(recipeApp.dietArray)
+    // console.log(recipeApp.dietArray)
 
     
     // =========================================================================================
@@ -92,7 +92,7 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
         },
         traditional: true
     }).then(result => {
-        console.log(result);
+        // console.log(result);
         // recipeApp.recipePull(result)
         recipeApp.hits = result.hits;
     }).catch(result => {
@@ -124,7 +124,7 @@ console.log(retrieveResults);
 
 // This is a function to pull the recipe so we can drill down and extract JUST the recipes
 recipeApp.recipePull = function(retrievedResults) {
-    console.log($(retrievedResults).hits[0])
+    // console.log($(retrievedResults).hits[0])
 }
 
 // This is a function to take the recipes from the above function and append it to the DOM
