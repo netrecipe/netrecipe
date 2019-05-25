@@ -120,7 +120,7 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
     
 // };
 
-
+console.log(retrieveResults);
 
 // This is a function to pull the recipe so we can drill down and extract JUST the recipes
 recipeApp.recipePull = function(retrievedResults) {
