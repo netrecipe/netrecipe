@@ -95,6 +95,7 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
         console.log(result);
         // recipeApp.recipePull(result)
         recipeApp.hits = result.hits;
+        console.log(recipeApp.hits)
     }).catch(result => {
         console.log("FAIL");
     });    
