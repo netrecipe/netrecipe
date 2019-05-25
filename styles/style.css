@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Play:400,700&display=swap");
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block;
 }
@@ -163,4 +164,34 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+html {
+  font-size: 125%;
+}
+
+h1 {
+  font-family: "Play", sans-serif;
+  font-size: 10rem;
+  font-style: oblique;
+  color: #ac3d98;
+  text-shadow: 2px 2px 10px #872b64;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30vw;
+}
+
+.contentWrapper {
+  width: 70vw;
+  margin: 0 0 0 auto;
+}
+
+.resultsWrapper {
+  width: 60vw;
+  margin: 0 0 0 auto;
 }

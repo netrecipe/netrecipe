@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-    <g transform="matrix(4.31877,-1.91862,0.0357854,7.0746,-106.413,-1154.88)">
-        <text x="28.782px" y="199.091px" style="font-family:'Impact', sans-serif;font-stretch:condensed;font-size:12px;">N<tspan x="35.977px 42.807px 47.16px 54.318px 61.149px 67.781px 71.764px 78.688px " y="199.091px 199.091px 199.091px 199.091px 199.091px 199.091px 199.091px 199.091px ">etRecipe</tspan></text>
+    <g transform="matrix(-0.912087,0.549708,-0.384806,-0.638478,406.973,139.486)">
+        <path d="M209.172,38.59L216.781,104.072L235.675,52.004L231.707,106.834L265.68,49.044L245.767,112.25L284.646,70.871L258.42,120.114L313.585,78.815L269.181,130.122L322.127,105.731L277.636,141.891L345.594,123.371L283.46,154.968L342.411,151.278L286.429,168.85L356.834,175.927L286.429,183.004L342.411,200.577L283.46,196.887L345.594,228.484L277.636,209.963L322.127,246.124L269.181,221.732L313.585,273.04L258.42,231.741L284.646,280.984L245.767,239.604L265.68,302.811L231.707,245.021L235.675,299.85L216.781,247.782L209.172,313.265L201.563,247.782L182.669,299.85L186.637,245.021L152.664,302.811L172.577,239.604L133.698,280.984L159.924,231.741L104.759,273.04L149.163,221.732L96.217,246.124L140.708,209.963L72.75,228.484L134.884,196.887L75.933,200.577L131.915,183.004L61.51,175.927L131.915,168.85L75.933,151.278L134.884,154.968L72.75,123.371L140.708,141.891L96.217,105.731L149.163,130.122L104.759,78.815L159.924,120.114L133.698,70.871L172.577,112.25L152.664,49.044L186.637,106.834L182.669,52.004L201.563,104.072L209.172,38.59Z" style="fill:url(#_Linear1);"/>
     </g>
-    <g transform="matrix(4.31877,-1.91862,0.0357854,7.0746,-102.413,-1151.88)">
-        <text x="28.782px" y="199.091px" style="font-family:'Impact', sans-serif;font-stretch:condensed;font-size:12px;fill:rgb(247,144,226);">N<tspan x="35.977px 42.807px 47.16px 54.318px 61.149px 67.781px 71.764px 78.688px " y="199.091px 199.091px 199.091px 199.091px 199.091px 199.091px 199.091px 199.091px ">etRecipe</tspan></text>
+    <g transform="matrix(2.08407,0,0,1.54111,14.6927,-134.257)">
+        <g transform="matrix(4.28997,-1.90583,0.138396,7.25895,-124.894,-1192.94)">
+            <text x="28.782px" y="199.091px" style="font-family:'Impact', sans-serif;font-stretch:condensed;font-size:12px;">N<tspan x="35.977px " y="199.091px ">R</tspan></text>
+        </g>
+        <g transform="matrix(4.31877,-1.91862,0.0357854,7.0746,-102.413,-1155.88)">
+            <text x="28.782px" y="199.091px" style="font-family:'Impact', sans-serif;font-stretch:condensed;font-size:12px;fill:rgb(247,144,226);">N<tspan x="35.977px " y="199.091px ">R</tspan></text>
+        </g>
     </g>
     <g transform="matrix(1.03466,0,0,0.953623,-18.9674,-7.93565)">
         <g transform="matrix(1,0,0,1.2891,-7.79224,-86.9792)">
@@ -93,4 +98,7 @@
             </g>
         </g>
     </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(295.325,0,0,274.675,61.5097,175.927)"><stop offset="0" style="stop-color:rgb(255,141,71);stop-opacity:0.737255"/><stop offset="0.06" style="stop-color:rgb(255,149,68);stop-opacity:0.533333"/><stop offset="0.15" style="stop-color:rgb(255,172,61);stop-opacity:0.576471"/><stop offset="0.3" style="stop-color:rgb(255,193,54);stop-opacity:0.764706"/><stop offset="0.47" style="stop-color:rgb(255,211,48);stop-opacity:0.933333"/><stop offset="1" style="stop-color:rgb(255,218,46);stop-opacity:1"/></linearGradient>
+    </defs>
 </svg>
