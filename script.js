@@ -77,28 +77,26 @@ $("button").on("click", function(event) {
     recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietArray, recipeApp.healthArray);
 
 })
-   recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
-       console.log(healthArray);
-        $.ajax({
+recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
+    console.log(healthArray);
+    $.ajax({
         url: "https://api.edamam.com/search",
         method: "GET",
         dataType: "jsonp",
+        traditional: true,
         data: {
             app_id: "b5bbacb1",
             app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
             q: mainIngredient,
             diet: dietArray,  // diet only accepts one value as a string            
             health: healthArray  // health accepts multiple values in array
-            
-        },
-        traditional: true
-
+        }
     }).then(result => {
         console.log(result);
     }).catch(result => {
         console.log("FAIL");
     });    
-    }
+}   
 
 
 
