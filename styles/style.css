@@ -225,6 +225,11 @@ button {
 .concernsList li.highlightFlag {
   font-weight: bold;
   color: #f5cf25;
+  text-decoration: none;
+}
+
+.card .cardTitle {
+  font-size: 1.2rem;
 }
 
 ul, ol {
