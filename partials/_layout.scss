@@ -4,7 +4,6 @@ ul, ol {
 }
 
 body {
-    height: 100%;
     padding-bottom: 20px;
 }
 
@@ -18,8 +17,9 @@ img {
     margin: 0 auto;
 }
 
-header {
-    height: 100vh;
+.maxWrapper {
+    max-width: 1480px;
+    margin: 0 auto;
 }
 
 .titleBox {
@@ -50,13 +50,15 @@ form {
     height: 100%;
 }
 
-.userChoices {
+.userChoices,
+.recipeResults  {
     display: flex;
     flex-flow: row wrap;
     
 }
 
-.dietarySpecifics {
+.dietarySpecifics,
+.recipeResults li {
     flex: 1 0 30%;
     min-width: 280px;
     justify-content: space-between;
@@ -67,15 +69,22 @@ form {
     margin: 5px;
 }
 
-.submitButton {
+.recipeResults img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    display: inline-block;
+
+}
+
+
+button {
     display:flex;
     justify-content: center;
     align-items: center;
-}
-
-button {
-        margin: 20px;
-        border: none;
-        padding: 1rem 1.5rem;
-        text-align: center;
+    border: none;
+    margin: 0 auto;
+    margin: 20px auto;
+    padding: 1rem 1.5rem;
+    text-align: center;
 }

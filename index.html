@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
-    <title>NetRecipe</title>
+    <title>NetRecipe: A Culinary Voyage Through Cyberspace</title>
 </head>
 <body>
     <header>
@@ -20,7 +20,7 @@
     
     <main>
         <section class="search">
-            <h3 class="contentWrapper">Navigate My Nourishment</h3>
+            <h3 class="contentWrapper">Navigate Nourishment</h3>
             <form id="recipeForm" action="" class="recipeForm">
                 
                 <div class="userChoices contentWrapper">
@@ -29,7 +29,7 @@
                             <h4>Core Ingredient</h4>
                             <div class="optionDescription">
                                 <p>Please choose the main ingredient for your dish.</p>
-                                <p><em>*NOTE: For the best vegan or vegetarian recipes, please select "vegetable".</em></p>
+                                <p><em>*For the best vegan or vegetarian recipes, please select "vegetable".</em></p>
                             </div>
                             <select id="mainIngredient" name="mainIngredient">
                                 <option value="vegetable">Vegetable</option>
@@ -115,10 +115,13 @@
                 </div>
             </form>
         </section>
-        <div class="resultsWrapper contentWrapper">
+        <section>
             <h3 class="resultsHeading"></h3>
-            <ol class="recipeResults"></ol>
-        </div>
+            <div class="resultsWrapper contentWrapper">
+                
+                <ol class="recipeResults"></ol>
+            </div>
+        </section>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="script.js"></script>
     </main>
