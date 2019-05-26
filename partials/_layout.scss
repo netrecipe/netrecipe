@@ -1,6 +1,14 @@
-ul {
+ul, ol {
     list-style-type: none;
     padding-left: 0;
+}
+
+body {
+    height: 100%;
+}
+
+img {
+    max-width: 100%;
 }
 
 .contentWrapper {
@@ -9,12 +17,30 @@ ul {
     margin: 0 auto;
 }
 
+header {
+    height: 100vh;
+}
+
+.titleBox {
+    padding: 1rem 0;
+}
+
 .logoBox {
     width: 100%;
+    max-width: 400px;
 }
 
 .splash-title {
     margin: 0 auto;
+}
+
+form h3 {
+    padding: 2rem 0 1rem 0;
+}
+
+.formSectionDeco {
+    padding: 1rem;
+    position: relative;
 }
 
 .userChoices {

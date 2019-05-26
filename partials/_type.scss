@@ -4,9 +4,32 @@ html {
     font-size: 125%;
 }
 
-.splashTitle {
-    font-family: "Play", sans-serif;
-    font-style: oblique;
+body {
     color: $frontColor;
 }
 
+.splashTitle,
+.splashSubTitle {
+    font-family: "Play", sans-serif;
+    font-style: oblique;
+    color: $themeColor;
+    text-shadow: .1rem .1rem 0 $back2Color;
+}
+
+.splashSubTitle {
+    font-family: "Play", sans-serif;
+    font-style: oblique;
+    color: $accentColor;
+    text-shadow: .1rem .1rem 0 $back2Color;
+}
+
+
+.ingredientSection {
+    color: $back2Color;
+}
+
+
+
+.resultsWrapper h3 {
+    color: $frontColor;
+}
