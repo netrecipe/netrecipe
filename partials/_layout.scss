@@ -4,7 +4,7 @@ ul, ol {
 }
 
 body {
-    height: 100%;
+    padding-bottom: 20px;
 }
 
 img {
@@ -13,12 +13,13 @@ img {
 
 .contentWrapper {
     max-width: 1280px;
-    width: 90%;
+    width: 94%;
     margin: 0 auto;
 }
 
-header {
-    height: 100vh;
+.maxWrapper {
+    max-width: 1480px;
+    margin: 0 auto;
 }
 
 .titleBox {
@@ -34,42 +35,56 @@ header {
     margin: 0 auto;
 }
 
-form h3 {
-    padding: 2rem 0 1rem 0;
+.search h3 {
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+form {
+    overflow: hidden;
 }
 
 .formSectionDeco {
     padding: 1rem;
     position: relative;
+    height: 100%;
 }
 
-.userChoices {
+.userChoices,
+.recipeResults  {
+    display: flex;
+    flex-flow: row wrap;
     
-    display: flex;
-    flex-flow: column wrap;
 }
 
-.dietarySpecifics {
+.dietarySpecifics,
+.recipeResults li {
+    flex: 1 0 30%;
+    min-width: 280px;
+    justify-content: space-between;
+    flex-flow: column wrap;
+    padding: 10px 0;
+    display: flex;
+    align-items: stretch;
+    margin: 5px;
+}
+
+.recipeResults img {
     width: 100%;
-    display: flex;
-    flex-flow: column wrap;
+    max-width: 100%;
+    object-fit: cover;
+    display: inline-block;
+
 }
 
-.submitButton {
+
+button {
     display:flex;
     justify-content: center;
     align-items: center;
-    
-}
-
-button {
-        margin: 1rem;
-        background-color: rgb(107, 38, 29);
-        border: none;
-        color: white;
-        padding: 1rem 1.5rem;
-        text-align: center;
-        text-decoration: none;
-        font-size: 1rem;
-        cursor: pointer;
+    border: none;
+    margin: 0 auto;
+    margin: 20px auto;
+    padding: 1rem 1.5rem;
+    text-align: center;
 }

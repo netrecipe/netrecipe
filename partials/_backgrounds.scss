@@ -1,6 +1,8 @@
 header {
     background: url(../assets/BG_Platters.jpg);
-    background-position: 52% 15%;
+    background-position: 52% 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .titleBox {
@@ -11,10 +13,23 @@ header {
     background-color: skyblue;
 }
 
-form {
+.dietSection .formSectionDeco {
+    background-color: mediumaquamarine;
+}
+
+.healthSection .formSectionDeco {
+    background-color: lemonchiffon
+}
+
+.search {
     background-color: $back1Color;
 }
 
 .formSectionDeco {
+    border-radius: 1rem;
+}
+
+button {
+    background-color: $themeColor;
     border-radius: 1rem;
 }

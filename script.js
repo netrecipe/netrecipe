@@ -174,6 +174,11 @@ recipeApp.buildCardElement = (recipeHit) => {
     const cardRecipeName = recipeHit.label;
     const cardImageAltText = cardRecipeName;
     const cardImage = recipeHit.image;
+    // ensure 'reduce' does not raise empty array error
+    // by supplying at least one array element
+    if (recipeHit.dietLabels.length == 0) {
+        recipeHit.dietLabels = ['']
+    }
     // scoop all of the recipe's diet labels into a string of list items
     const cardDietLabelsString = recipeHit.dietLabels.reduce((acc, label) => {
         return acc + `<li>${label}</li>`
