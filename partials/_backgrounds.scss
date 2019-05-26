@@ -43,3 +43,11 @@ button {
     background-color: $back2Color;
 }
 
+.card:nth-last-child(2n) {
+    background-color: $back1Color;
+}
+.card:nth-last-child(1),
+.card:nth-last-child(2) {
+
+    background-color: transparent;
+}

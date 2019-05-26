@@ -218,6 +218,7 @@ button {
 .concernsList li {
   font-weight: lighter;
   color: #aeaeae;
+  text-decoration: line-through;
 }
 
 .dietaryList,
@@ -352,6 +353,10 @@ button {
   height: 300px;
 }
 
+.cardTextWrapper {
+  padding: 1rem;
+}
+
 html {
   background: #3b2914;
 }
@@ -394,6 +399,15 @@ button {
 
 .results {
   background-color: #3b2914;
+}
+
+.card:nth-last-child(2n) {
+  background-color: #4b3519;
+}
+
+.card:nth-last-child(1),
+.card:nth-last-child(2) {
+  background-color: transparent;
 }
 
 button {

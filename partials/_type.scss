@@ -51,6 +51,7 @@ button {
 .concernsList li {
     font-weight: lighter;
     color: desaturate($frontColor, 50%);
+    text-decoration: line-through;
 }
 .dietaryList,
 .concernsList li.highlightFlag {
