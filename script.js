@@ -95,9 +95,11 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
     }).then(result => {
         // unwrap the recipes from the API result hits
         recipeApp.hits = result.hits.map(hit => hit.recipe);
+        // put the recipes onto cards and attach to DOM
         recipeApp.generateCards(recipeApp.hits);
+        // give the results a heading
+        $('.resultsHeading').text("My Dining Destination"); 
     }).catch(result => {
-        console.log("FAIL", result);
     });    
 }   
 
@@ -149,8 +151,6 @@ recipeApp.restrictionList = [
 // in our list of available health labels
 //================================================================
 recipeApp.filterHealthRestrictions = (currentRecipeHit) => {
-    // console.log("current Recipe", currentRecipeHit);
-    // console.log("current recipe healthLabels", currentRecipeHit.healthLabels);
     return recipeApp.restrictionList.filter(restrictionObject => {
         return currentRecipeHit.healthLabels.includes(restrictionObject.healthLabel);
     });
@@ -174,9 +174,10 @@ recipeApp.buildCardElement = (recipeHit) => {
     const cardRecipeName = recipeHit.label;
     const cardImageAltText = cardRecipeName;
     const cardImage = recipeHit.image;
-    console.log(recipeHit);
-    console.log(recipeHit.dietLabel);
-    const cardDietLabel = recipeHit.dietLabel;
+    // scoop all of the recipe's diet labels into a string of list items
+    const cardDietLabelsString = recipeHit.dietLabels.reduce((acc, label) => {
+        return acc + `<li>${label}</li>`
+    });
 
 
     // template
@@ -188,9 +189,9 @@ recipeApp.buildCardElement = (recipeHit) => {
             </div>
             <p>${cardRecipeName}<p>
             <div>
-                <div>
-                    <p>${cardDietLabel}</p>
-                </div>
+                <ul>
+                    ${cardDietLabelsString}
+                </ul>
                 <ul>
                     <li class="veganFlag">Vegan</li>
                     <li class="vegetarianFlag">Vegetarian</li>

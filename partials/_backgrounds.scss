@@ -1,3 +1,20 @@
 header {
+    background: url(../assets/BG_Platters.jpg);
+    background-position: 52% 15%;
+}
+
+.titleBox {
+    background-color: transparentize($back2Color, .5);
+}
+
+.ingredientSection .formSectionDeco {
+    background-color: skyblue;
+}
+
+form {
     background-color: $back1Color;
+}
+
+.formSectionDeco {
+    border-radius: 1rem;
 }
