@@ -52,7 +52,10 @@ $("button").on("click", function(event) {
     recipeApp.dietLabel = $(`input.diet[type=radio]:checked`).val();
     recipeApp.dietArray.push(recipeApp.dietLabel);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a757c740b3ec2b1c4674f42c48e21d35dff2913e
     
     // =========================================================================================
 
@@ -69,10 +72,14 @@ $("button").on("click", function(event) {
     for (let i = 0; i < healthElements.length; i++){
         recipeApp.healthArray.push($(healthElements[i]).val());
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> a757c740b3ec2b1c4674f42c48e21d35dff2913e
 
     // =========================================================================================
     recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietArray, recipeApp.healthArray);
+
 
 })
 recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
@@ -90,8 +97,12 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
         },
         traditional: true
     }).then(result => {
+<<<<<<< HEAD
         recipeApp.hits = result.hits;
         console.log(recipeApp.hits);
+=======
+        console.log(result);
+>>>>>>> a757c740b3ec2b1c4674f42c48e21d35dff2913e
     }).catch(result => {
         console.log("FAIL");
     });    
@@ -99,6 +110,19 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
 
 
 
+<<<<<<< HEAD
+=======
+$(document).ready(function(){
+    recipeApp.getRecipes()
+})
+>>>>>>> a757c740b3ec2b1c4674f42c48e21d35dff2913e
 
 
 
+    // ==============================================================================
+    recipeApp.resultSort = (resultsArray)=> {
+        for (let i = 0; i < resultsArray.length; i++) {
+            $(".userChoiceResults").append(`<p>${resultsArray[i]}</p>`)
+        }
+    }
+    // ==============================================================================
