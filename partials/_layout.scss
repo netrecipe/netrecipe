@@ -94,9 +94,10 @@ button {
     text-align: center;
 }
 
-@media (min-width: 900px) {
-    
+.card img {
+    height: 300px;
 }
-@media (min-width: 940px) {
-    
+
+.cardTextWrapper {
+    padding: 1rem;
 }

@@ -29,207 +29,209 @@
 
 const recipeApp = {};
 
+$(function (){
 // this is done via ajax call to API, which passes the search to the query portion
-const $searchForm = $("#recipeForm");
-$("button").on("click", function(event) {
-    event.preventDefault();
-
-// =========================================================================================
-// DROP DOWN - MAIN INGREDIENT
-// =========================================================================================
-    // get values from form single-value inputs
-    recipeApp.mainIngredientValue = $("#recipeForm :input").val();
-
+    const $searchForm = $("#recipeForm");
+    $("button").on("click", function(event) {
+        event.preventDefault();
 
     // =========================================================================================
-    // CHECKBOXES - DIET
+    // DROP DOWN - MAIN INGREDIENT
     // =========================================================================================
-    // Get values for 'diet' radio buttons
-    recipeApp.dietArray = [];
-
-    recipeApp.dietLabel = $(`input.diet[type=radio]:checked`).val();
-    recipeApp.dietArray.push(recipeApp.dietLabel);
-
-    
-    // =========================================================================================
+        // get values from form single-value inputs
+        recipeApp.mainIngredientValue = $("#recipeForm :input").val();
 
 
-    // =========================================================================================
-    // CHECKBOXES - HEALTH
-    // =========================================================================================
+        // =========================================================================================
+        // CHECKBOXES - DIET
+        // =========================================================================================
+        // Get values for 'diet' radio buttons
+        recipeApp.dietArray = [];
 
-    // get values from checkboxes and push them to app array
+        recipeApp.dietLabel = $(`input.diet[type=radio]:checked`).val();
+        recipeApp.dietArray.push(recipeApp.dietLabel);
 
-    const healthElements = $(`input.health[type=checkbox]:checked`);  
-    recipeApp.healthArray = [];
+        
+        // =========================================================================================
 
-    for (let i = 0; i < healthElements.length; i++){
-        recipeApp.healthArray.push($(healthElements[i]).val());
-    }
 
-    // =========================================================================================
-    recipeApp.hits = recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietArray, recipeApp.healthArray);
+        // =========================================================================================
+        // CHECKBOXES - HEALTH
+        // =========================================================================================
 
-    
+        // get values from checkboxes and push them to app array
 
-})
+        const healthElements = $(`input.health[type=checkbox]:checked`);  
+        recipeApp.healthArray = [];
+
+        for (let i = 0; i < healthElements.length; i++){
+            recipeApp.healthArray.push($(healthElements[i]).val());
+        }
+
+        // =========================================================================================
+        recipeApp.hits = recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietArray, recipeApp.healthArray);
+
+        
+
+    })
 
 //=================================================================================================
 // END OF SUBMIT EVENT
 //=================================================================================================
+    recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
+        $.ajax({
+            url: "https://api.edamam.com/search",
+            method: "GET",
+            dataType: "jsonp",
+            traditional: true,
+            data: {
+                app_id: "b5bbacb1",
+                app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
+                q: mainIngredient,
+                diet: dietArray,  // diet only accepts one value as a string            
+                health: healthArray  // health accepts multiple values in array
+            },
+            traditional: true
+        }).then(result => {
+            // unwrap the recipes from the API result hits
+            recipeApp.hits = result.hits.map(hit => hit.recipe);
+            // put the recipes onto cards and attach to DOM
+            recipeApp.generateCards(recipeApp.hits);
+            // give the results a heading
+            $('.resultsHeading').text("Dining Destinations"); 
+        }).catch(result => {
+        });    
+    }   
 
-recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
-    $.ajax({
-        url: "https://api.edamam.com/search",
-        method: "GET",
-        dataType: "jsonp",
-        traditional: true,
-        data: {
-            app_id: "b5bbacb1",
-            app_key: "4bbe351691f8c9f0ff6ca6da4fb0382a",
-            q: mainIngredient,
-            diet: dietArray,  // diet only accepts one value as a string            
-            health: healthArray  // health accepts multiple values in array
+
+    //=================================================================
+    //=================================================================
+    //=================================================================
+
+
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // BUILDING CARD COMPONENTS AND EXTRACTING HIT DATA
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    // an array of restriction objects mapping API recipe healthLabels with
+    // restriction classes in our recipe card component.
+    recipeApp.restrictionList = [
+        {
+            restrictionClass: ".veganFlag",
+            healthLabel: "Vegan"
         },
-        traditional: true
-    }).then(result => {
-        // unwrap the recipes from the API result hits
-        recipeApp.hits = result.hits.map(hit => hit.recipe);
-        // put the recipes onto cards and attach to DOM
-        recipeApp.generateCards(recipeApp.hits);
-        // give the results a heading
-        $('.resultsHeading').text("My Dining Destination"); 
-    }).catch(result => {
-    });    
-}   
+        {
+            restrictionClass: ".vegetarianFlag",
+            healthLabel: "Vegetarian"
+        },
+        {
+            restrictionClass: ".peanutFreeFlag",
+            healthLabel: "Peanut-Free"
+        },
+        {
+            restrictionClass: ".treeNutFreeFlag",
+            healthLabel: "Tree-Nut-Free"
+        },
+        {
+            restrictionClass: ".sugarConciousFlag",
+            healthLabel: "Sugar-Conscious"
+        },
+        {
+            restrictionClass: ".alcoholFreeFlag",
+            healthLabel: "Alcohol-Free"
+        },
+    ];
 
+    //================================================================
+    // extract recipe image
+    //================================================================
 
-//=================================================================
-//=================================================================
-//=================================================================
-
-
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// BUILDING CARD COMPONENTS AND EXTRACTING HIT DATA
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// an array of restriction objects mapping API recipe healthLabels with
-// restriction classes in our recipe card component.
-recipeApp.restrictionList = [
-    {
-        restrictionClass: "veganFlag",
-        healthLabel: "Vegan"
-    },
-    {
-        restrictionClass: "vegetarianFlag",
-        healthLabel: "Vegetarian"
-    },
-    {
-        restrictionClass: "peanutFreeFlag",
-        healthLabel: "Peanut-Free"
-    },
-    {
-        restrictionClass: "treeNutFreeFlag",
-        healthLabel: "Tree-Nut-Free"
-    },
-    {
-        restrictionClass: "sugarConciousFlag",
-        healthLabel: "Sugar-Conscious"
-    },
-    {
-        restrictionClass: "alcoholFreeFlag",
-        healthLabel: "Alcohol-Free"
-    },
-];
-
-//================================================================
-// extract recipe image
-//================================================================
-
-//================================================================
-// checks which of the current recipe's health labels are included
-// in our list of available health labels
-//================================================================
-recipeApp.filterHealthRestrictions = (currentRecipeHit) => {
-    return recipeApp.restrictionList.filter(restrictionObject => {
-        return currentRecipeHit.healthLabels.includes(restrictionObject.healthLabel);
-    });
-}
-//================================================================
-
-//================================================================
-// assigns a class to whichever recipe flags are checked in the 
-// current recipe's array of healthLabels.
-//================================================================
-recipeApp.applyHealthLabel = (cardComponent, currentRecipeHit) => {
-    const matchedRestrictionsArray = recipeApp.filterHealthRestrictions(currentRecipeHit);
-    matchedRestrictionsArray.forEach(restriction => {
-        $(cardComponent).find(restriction.restrictionClass).addClass("highlightFlag")
-    })
-}
-
-
-recipeApp.buildCardElement = (recipeHit) => {
-    // extract data from current recipe hit
-    const cardRecipeName = recipeHit.label;
-    const cardImageAltText = cardRecipeName;
-    const cardURL = recipeHit.url;
-    const cardImage = recipeHit.image;
-    // ensure 'reduce' does not raise empty array error
-    // by supplying at least one array element
-    if (recipeHit.dietLabels.length == 0) {
-        recipeHit.dietLabels = ['']
+    //================================================================
+    // checks which of the current recipe's health labels are included
+    // in our list of available health labels
+    //================================================================
+    recipeApp.filterHealthRestrictions = (currentRecipeHit) => {
+        return recipeApp.restrictionList.filter(restrictionObject => {
+            return currentRecipeHit.healthLabels.includes(restrictionObject.healthLabel);
+        });
     }
-    // scoop all of the recipe's diet labels into a string of list items
-    const cardDietLabelsString = recipeHit.dietLabels.reduce((acc, label) => {
-        return acc + `<li>${label}</li>`
-    });
+    //================================================================
+
+    //================================================================
+    // assigns a class to whichever recipe flags are checked in the 
+    // current recipe's array of healthLabels.
+    //================================================================
+    recipeApp.applyHealthLabel = ($cardComponent, currentRecipeHit) => {
+        const matchedRestrictionsArray = recipeApp.filterHealthRestrictions(currentRecipeHit);
+        matchedRestrictionsArray.forEach(restriction => {
+            $cardComponent.find(restriction.restrictionClass).addClass("highlightFlag").attr("aria-hidden", "false");
+        })
+    }
 
 
-    // template
-    const cardTemplate = `
-        <li class="card">
-            <!-- this might be more accessible as a figure element -->
-            <div class="recipeImageBox">
-                <img src=${cardImage} alt=${cardImageAltText}>
-            </div>
-            <p><a href="${cardURL}" target="window">${cardRecipeName}</a><p>
-            <div>
-                <ul class="dietaryList">
-                    ${cardDietLabelsString}
-                </ul>
-                <ul class="concernsList">
-                    <li class="veganFlag">Vegan</li>
-                    <li class="vegetarianFlag">Vegetarian</li>
-                    <li class="peanutFreeFlag">Peanut-Free</li>
-                    <li class="treeNutFreeFlag">Tree-Nut-Free</li>
-                    <li class="sugarConsciousFlag">Sugar-Conscious</li>
-                    <li class="alcoholFreeFlag">Alcohol-Free</li>
-                </ul>
-            </div>
-        </li>
-    `;
-    // convert template string into DOM element
-    const $cardComponent = $(cardTemplate);
-    // highlight corresponding health restrictions
-    recipeApp.applyHealthLabel($cardComponent, recipeHit);
-    // return the DOM element version of the card
-    return $cardComponent;
-}
-//================================================================
+    recipeApp.buildCardElement = (recipeHit) => {
+        // extract data from current recipe hit
+        const cardRecipeName = recipeHit.label;
+        const cardImageAltText = cardRecipeName;
+        const cardURL = recipeHit.url;
+        const cardImage = recipeHit.image;
+        // ensure 'reduce' does not raise empty array error
+        // by supplying at least one array element
+        if (recipeHit.dietLabels.length == 0) {
+            recipeHit.dietLabels = ['']
+        }
+        // scoop all of the recipe's diet labels into a string of list items
+        // I tried to use .reduce to do this, but I couldn't figure it out.
+        const cardDietLabelsString = recipeHit.dietLabels.map(label => {
+            return `<li>${label}</li>`;
+        }).join('');
 
 
-//================================================================
-// appending card components to DOM
-//================================================================
-recipeApp.generateCards = () => {
-    $('.recipeResults').empty();
-    recipeApp.hits.forEach(hit => {
-        $cardComponent = recipeApp.buildCardElement(hit);
-        $('.recipeResults').append($cardComponent);
-    })
-    // hack to ensure odd-numbers of cards never get too wide 
-    // for viewport on flex wrap
-    $('.recipeResults').append('<li class="card"><li class="card">');
-}
+        // template
+        const cardTemplate = `
+            <li class="card">
+                <!-- this might be more accessible as a figure element -->
+                <div class="recipeImageBox">
+                    <img src=${cardImage} alt=${cardImageAltText}>
+                </div>
+                <div class="cardTextWrapper">
+                    <p><a href="${cardURL}" target="window">${cardRecipeName}</a></p>
+                    <ul class="dietaryList">
+                        ${cardDietLabelsString}
+                    </ul>
+                    <ul class="concernsList">
+                        <li class="veganFlag" aria-hidden>Vegan</li>
+                        <li class="vegetarianFlag" aria-hidden="true">Vegetarian</li>
+                        <li class="peanutFreeFlag" aria-hidden="true">Peanut-Free</li>
+                        <li class="treeNutFreeFlag" aria-hidden="true">Tree-Nut-Free</li>
+                        <li class="sugarConsciousFlag" aria-hidden="true">Sugar-Conscious</li>
+                        <li class="alcoholFreeFlag" aria-hidden="true">Alcohol-Free</li>
+                    </ul>
+                </div>
+            </li>
+        `;
+        // convert template string into DOM element
+        const $cardComponent = $(cardTemplate);
+        // highlight corresponding health restrictions
+        recipeApp.applyHealthLabel($cardComponent, recipeHit);
+        // return the DOM element version of the card
+        return $cardComponent;
+    }
+    //================================================================
 
+
+    //================================================================
+    // appending card components to DOM
+    //================================================================
+    recipeApp.generateCards = () => {
+        $('.recipeResults').empty();
+        recipeApp.hits.forEach(hit => {
+            $cardComponent = recipeApp.buildCardElement(hit);
+            $('.recipeResults').append($cardComponent);
+        })
+        // hack to ensure odd-numbers of cards never get too wide 
+        // for viewport on flex wrap
+        $('.recipeResults').append('<li class="card"><li class="card">');
+    }
+
+});

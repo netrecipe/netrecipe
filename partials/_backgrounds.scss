@@ -1,3 +1,8 @@
+
+html {
+    background: $back2Color;
+}
+
 header {
     background: url(../assets/BG_Platters.jpg);
     background-position: 52% 0%;
@@ -38,3 +43,11 @@ button {
     background-color: $back2Color;
 }
 
+.card:nth-last-child(2n) {
+    background-color: $back1Color;
+}
+.card:nth-last-child(1),
+.card:nth-last-child(2) {
+
+    background-color: transparent;
+}

@@ -177,6 +177,7 @@ body {
 
 a {
   text-decoration: none;
+  color: #e77d19;
 }
 
 .splashTitle,
@@ -212,6 +213,18 @@ button {
 
 .resultsWrapper h3 {
   color: #cfa58c;
+}
+
+.concernsList li {
+  font-weight: lighter;
+  color: #aeaeae;
+  text-decoration: line-through;
+}
+
+.dietaryList,
+.concernsList li.highlightFlag {
+  font-weight: bold;
+  color: #f5cf25;
 }
 
 ul, ol {
@@ -336,6 +349,18 @@ button {
   text-align: center;
 }
 
+.card img {
+  height: 300px;
+}
+
+.cardTextWrapper {
+  padding: 1rem;
+}
+
+html {
+  background: #3b2914;
+}
+
 header {
   background: url(../assets/BG_Platters.jpg);
   background-position: 52% 0%;
@@ -374,6 +399,15 @@ button {
 
 .results {
   background-color: #3b2914;
+}
+
+.card:nth-last-child(2n) {
+  background-color: #4b3519;
+}
+
+.card:nth-last-child(1),
+.card:nth-last-child(2) {
+  background-color: transparent;
 }
 
 button {
