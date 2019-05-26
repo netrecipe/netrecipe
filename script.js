@@ -52,8 +52,6 @@ $("button").on("click", function(event) {
     recipeApp.dietLabel = $(`input.diet[type=radio]:checked`).val();
     recipeApp.dietArray.push(recipeApp.dietLabel);
 
-    // console.log(recipeApp.dietArray)
-
     
     // =========================================================================================
 
@@ -70,11 +68,10 @@ $("button").on("click", function(event) {
     for (let i = 0; i < healthElements.length; i++){
         recipeApp.healthArray.push($(healthElements[i]).val());
     }
-    console.log(recipeApp.healthArray);
-
 
     // =========================================================================================
     recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietArray, recipeApp.healthArray);
+
 
 })
 recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
@@ -92,49 +89,24 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
         },
         traditional: true
     }).then(result => {
-        // console.log(result);
-        // recipeApp.recipePull(result)
-        recipeApp.hits = result.hits;
+        console.log(result);
     }).catch(result => {
         console.log("FAIL");
     });    
 }   
 
-// recipeApp.userResults = function(userChoiceResults){
-    
-// }
 
-// disQuiz.checkAnswer = function(userChoiceVal, questionAsked, buttonReference) {
 
-//     const formattedQuestion = questionAsked.replace("-", "");
-//     const formattedUserChoice = userChoiceVal.replace("-", "");
-        
-
-//     if(formattedUserChoice === disQuiz.answerGuide[formattedQuestion].answer) {
-//         $(buttonReference).next().append(`Correct! ${disQuiz.answerGuide[formattedQuestion].fact}`);
-//         score++
-//     } else {
-//         $(buttonReference).next().append(`Incorrect. ${disQuiz.answerGuide[formattedQuestion].fact}`);   
-//     }
-
-    
-// };
-
-console.log(retrieveResults);
-
-// This is a function to pull the recipe so we can drill down and extract JUST the recipes
-recipeApp.recipePull = function(retrievedResults) {
-    // console.log($(retrievedResults).hits[0])
-}
-
-// This is a function to take the recipes from the above function and append it to the DOM
-recipeApp.postResults = function(retrievedRecipes) {
-
-    // $("userChoiceResults").append(retrievedResults);
-    $("button").click(function(){
-        $("ol").append("<b>Appended text</b>");
-      });
-}
+$(document).ready(function(){
+    recipeApp.getRecipes()
+})
 
 
 
+    // ==============================================================================
+    recipeApp.resultSort = (resultsArray)=> {
+        for (let i = 0; i < resultsArray.length; i++) {
+            $(".userChoiceResults").append(`<p>${resultsArray[i]}</p>`)
+        }
+    }
+    // ==============================================================================
