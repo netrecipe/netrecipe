@@ -173,6 +173,7 @@ recipeApp.buildCardElement = (recipeHit) => {
     // extract data from current recipe hit
     const cardRecipeName = recipeHit.label;
     const cardImageAltText = cardRecipeName;
+    const cardURL = recipeHit.url;
     const cardImage = recipeHit.image;
     // ensure 'reduce' does not raise empty array error
     // by supplying at least one array element
@@ -187,17 +188,17 @@ recipeApp.buildCardElement = (recipeHit) => {
 
     // template
     const cardTemplate = `
-        <li>
+        <li class="card">
             <!-- this might be more accessible as a figure element -->
             <div class="recipeImageBox">
                 <img src=${cardImage} alt=${cardImageAltText}>
             </div>
-            <p>${cardRecipeName}<p>
+            <p><a href="${cardURL}" target="window">${cardRecipeName}</a><p>
             <div>
-                <ul>
+                <ul class="dietaryList">
                     ${cardDietLabelsString}
                 </ul>
-                <ul>
+                <ul class="concernsList">
                     <li class="veganFlag">Vegan</li>
                     <li class="vegetarianFlag">Vegetarian</li>
                     <li class="peanutFreeFlag">Peanut-Free</li>
@@ -227,5 +228,8 @@ recipeApp.generateCards = () => {
         $cardComponent = recipeApp.buildCardElement(hit);
         $('.recipeResults').append($cardComponent);
     })
+    // hack to ensure odd-numbers of cards never get too wide 
+    // for viewport on flex wrap
+    $('.recipeResults').append('<li class="card"><li class="card">');
 }
 

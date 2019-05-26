@@ -11,11 +11,13 @@
     <header>
         <div class="maxWrapper">
             <div class="logoBox"><img src="assets/logo.svg" alt="NetRecipe Logo"></div>
-            <div class="titleBox">  
-                <h1 class="splashTitle contentWrapper">NetRecipe</h1>
-                <h2 class="splashSubTitle contentWrapper">A Culinary Voyage Through Cyberspace</h2>
-            </div>
         </div>
+            <div class="titleBox">  
+                <div class="titleBoxInner">
+                    <h1 class="splashTitle contentWrapper">NetRecipe</h1>
+                    <h2 class="splashSubTitle contentWrapper">A Culinary Voyage Through Cyberspace</h2>
+                </div>
+            </div>
     </header>
     
     <main>
@@ -28,8 +30,8 @@
                         <div class="formSectionDeco">
                             <h4>Core Ingredient</h4>
                             <div class="optionDescription">
-                                <p>Please choose the main ingredient for your dish.</p>
-                                <p><em>*For the best vegan or vegetarian recipes, please select "vegetable".</em></p>
+                                <p>Please select the main ingredient for your dish.</p>
+                                <p><em>*For the best vegan or vegetarian recipes, select "vegetable".</em></p>
                             </div>
                             <select id="mainIngredient" name="mainIngredient">
                                 <option value="vegetable">Vegetable</option>
@@ -47,7 +49,7 @@
                             <!-- class="dietLabels" -->
                             <div class="optionDescription">
                                 <h4>Dietary Directive</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, ipsam adipisci illo nam modi ex eligendi aperiam eaque accusamus, quaerat illum ad nostrum dolores harum mollitia repudiandae odit quas! Veritatis!</p>
+                                <p>They say food is the best medicine. Pick a dietary profile.</p>
                             </div>
                             <ul class="options">
                                 <li>
@@ -77,7 +79,7 @@
                         <div class="formSectionDeco">
                             <div class="optionDescription">
                                 <h4>Food Concerns</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quasi perspiciatis eligendi totam placeat iusto, alias quos, mollitia omnis exercitationem repellat adipisci sequi fugit ratione quisquam eveniet vero labore quas!</p>
+                                <p>Choose from immune system-friendly recipes.</p>
                             </div>
                             <ul class="options">
                                     <!-- class="healthLabels" -->
@@ -115,8 +117,8 @@
                 </div>
             </form>
         </section>
-        <section>
-            <h3 class="resultsHeading"></h3>
+        <section class="results">
+            <h3 class="resultsHeading contentWrapper"></h3>
             <div class="resultsWrapper contentWrapper">
                 
                 <ol class="recipeResults"></ol>

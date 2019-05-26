@@ -3,9 +3,7 @@ ul, ol {
     padding-left: 0;
 }
 
-body {
-    padding-bottom: 20px;
-}
+body { position: relative; } 
 
 img {
     max-width: 100%;
@@ -23,7 +21,12 @@ img {
 }
 
 .titleBox {
-    padding: 1rem 0;
+    padding: 1rem;
+}
+.innerTitleBox {
+    position: absolute;
+    left:0;
+    right: 0;
 }
 
 .logoBox {
@@ -35,7 +38,8 @@ img {
     margin: 0 auto;
 }
 
-.search h3 {
+.search h3,
+.results h3 {
     padding: 1rem;
     padding-top: 2rem;
 }
@@ -54,11 +58,10 @@ form {
 .recipeResults  {
     display: flex;
     flex-flow: row wrap;
-    
 }
 
 .dietarySpecifics,
-.recipeResults li {
+.recipeResults .card {
     flex: 1 0 30%;
     min-width: 280px;
     justify-content: space-between;
@@ -69,12 +72,14 @@ form {
     margin: 5px;
 }
 
+.formSectionDeco:first-child {
+    padding-bottom: 2rem    ;
+}
 .recipeResults img {
     width: 100%;
     max-width: 100%;
     object-fit: cover;
     display: inline-block;
-
 }
 
 
@@ -87,4 +92,11 @@ button {
     margin: 20px auto;
     padding: 1rem 1.5rem;
     text-align: center;
+}
+
+@media (min-width: 900px) {
+    
+}
+@media (min-width: 940px) {
+    
 }
