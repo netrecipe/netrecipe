@@ -5,6 +5,7 @@ ul, ol {
 
 body {
     height: 100%;
+    padding-bottom: 20px;
 }
 
 img {
@@ -13,7 +14,7 @@ img {
 
 .contentWrapper {
     max-width: 1280px;
-    width: 90%;
+    width: 94%;
     margin: 0 auto;
 }
 
@@ -34,42 +35,47 @@ header {
     margin: 0 auto;
 }
 
-form h3 {
-    padding: 2rem 0 1rem 0;
+.search h3 {
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+form {
+    overflow: hidden;
 }
 
 .formSectionDeco {
     padding: 1rem;
     position: relative;
+    height: 100%;
 }
 
 .userChoices {
-    
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
+    
 }
 
 .dietarySpecifics {
-    width: 100%;
-    display: flex;
+    flex: 1 0 30%;
+    min-width: 280px;
+    justify-content: space-between;
     flex-flow: column wrap;
+    padding: 10px 0;
+    display: flex;
+    align-items: stretch;
+    margin: 5px;
 }
 
 .submitButton {
     display:flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 button {
-        margin: 1rem;
-        background-color: rgb(107, 38, 29);
+        margin: 20px;
         border: none;
-        color: white;
         padding: 1rem 1.5rem;
         text-align: center;
-        text-decoration: none;
-        font-size: 1rem;
-        cursor: pointer;
 }

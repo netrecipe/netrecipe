@@ -19,95 +19,102 @@
     </header>
     
     <main>
-        <form id="recipeForm" action="" class="recipeForm">
+        <section class="search">
             <h3 class="contentWrapper">Navigate My Nourishment</h3>
-            
-            <div class="userChoices contentWrapper">
-                <div class="ingredientSection dietarySpecifics">
-                    <div class="formSectionDeco">
-                        <h4>Core Ingredient</h4>
-                        <div class="optionDescription">
-                            <p>Please choose the main ingredient for your dish.</p>
-                            <p><em>*NOTE: For the best vegan or vegetarian recipes, please select "vegetable".</em></p>
+            <form id="recipeForm" action="" class="recipeForm">
+                
+                <div class="userChoices contentWrapper">
+                    <div class="ingredientSection dietarySpecifics">
+                        <div class="formSectionDeco">
+                            <h4>Core Ingredient</h4>
+                            <div class="optionDescription">
+                                <p>Please choose the main ingredient for your dish.</p>
+                                <p><em>*NOTE: For the best vegan or vegetarian recipes, please select "vegetable".</em></p>
+                            </div>
+                            <select id="mainIngredient" name="mainIngredient">
+                                <option value="vegetable">Vegetable</option>
+                                <option value="beef">Beef</option>
+                                <option value="pork">Pork</option>
+                                <option value="chicken">Chicken</option>
+                            </select>
                         </div>
-                        <select id="mainIngredient" name="mainIngredient">
-                            <option value="vegetable">Vegetable</option>
-                            <option value="beef">Beef</option>
-                            <option value="pork">Pork</option>
-                            <option value="chicken">Chicken</option>
-                        </select>
+                    </div>
+                    <!-- END INGREDIENTS -->
+                        <!-- DIET OPTIONS TAB -->
+                    <div class="dietSection dietarySpecifics">
+                        <div class="formSectionDeco">
+                            
+                            <!-- class="dietLabels" -->
+                            <div class="optionDescription">
+                                <h4>Dietary Directive</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, ipsam adipisci illo nam modi ex eligendi aperiam eaque accusamus, quaerat illum ad nostrum dolores harum mollitia repudiandae odit quas! Veritatis!</p>
+                            </div>
+                            <ul class="options">
+                                <li>
+                                    <input type="radio" id="balanced" class="diet" name="radio" value="balanced">
+                                    <label for="balanced">Balanced</label>
+                                </li>
+                        
+                                <li>
+                                    <input type="radio" id="highProtein" class="diet" name="radio" value="high-protein">
+                                    <label for="highProtein">High Protein</label>
+                                </li>
+                        
+                                <li>
+                                    <input type="radio" id="lowFat" class="diet" name="radio" value="low-fat">
+                                    <label for="lowFat">Low Fat</label>
+                                </li>
+                        
+                                <li>
+                                    <input type="radio" id="lowCarb" class="diet" name="radio" value="low-carb">
+                                    <label for="lowCarb">Low Carb</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- HEALTH OPTIONS TAB -->
+                    <div class="healthSection dietarySpecifics">
+                        <div class="formSectionDeco">
+                            <div class="optionDescription">
+                                <h4>Food Concerns</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quasi perspiciatis eligendi totam placeat iusto, alias quos, mollitia omnis exercitationem repellat adipisci sequi fugit ratione quisquam eveniet vero labore quas!</p>
+                            </div>
+                            <ul class="options">
+                                    <!-- class="healthLabels" -->
+                                <li>
+                                    <input type="checkbox" id="vegan" class="health" name="vegan" value="vegan">        
+                                    <label for="vegan">Vegan</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="vegetarian" class="health" name="vegetarian" value="vegetarian">
+                                    <label for="vegetarian">Vegetarian</label>
+                                </li>
+                                <li>   
+                                    <input type="checkbox" id="peanutFree" class="health" name="peanutFree" value="peanut-free">
+                                    <label for="peanutFree">Peanut Free</label>
+                                </li>
+                                <li>  
+                                    <input type="checkbox" id="treeNutFree" class="health" name="treeNutFree" value="tree-nut-free">
+                                    <label for="treeNutFree">Tree Nut Free</label>
+                                </li>
+                                <!-- class="health" -->
+                                <li>    
+                                    <input type="checkbox" id="sugarConscious" class="health" name="sugarConscious" value="sugar-conscious">
+                                    <label for="sugarConscious">Sugar Conscious</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="alcoholFree" class="health" name="alcoholFree" value="alcohol-free">
+                                    <label for="alcoholFree">Alcohol Free</label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <!-- END INGREDIENTS -->
-                    <!-- DIET OPTIONS TAB -->
-                <div class="dietSection dietarySpecifics">
-                    <!-- class="dietLabels" -->
-                    <div class="optionDescription">
-                        <h4>Dietary Directive</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, ipsam adipisci illo nam modi ex eligendi aperiam eaque accusamus, quaerat illum ad nostrum dolores harum mollitia repudiandae odit quas! Veritatis!</p>
-                    </div>
-                    <ul class="options">
-                        <li>
-                            <input type="radio" id="balanced" class="diet" name="radio" value="balanced">
-                            <label for="balanced">Balanced</label>
-                        </li>
-                
-                        <li>
-                            <input type="radio" id="highProtein" class="diet" name="radio" value="high-protein">
-                            <label for="highProtein">High Protein</label>
-                        </li>
-                
-                        <li>
-                            <input type="radio" id="lowFat" class="diet" name="radio" value="low-fat">
-                            <label for="lowFat">Low Fat</label>
-                        </li>
-                
-                        <li>
-                            <input type="radio" id="lowCarb" class="diet" name="radio" value="low-carb">
-                            <label for="lowCarb">Low Carb</label>
-                        </li>
-                    </ul>
+                <div class="submitButton">
+                    <button>Taste the Adventure!</button>
                 </div>
-                <!-- HEALTH OPTIONS TAB -->
-                <div class="healthSection dietarySpecifics">
-                    <div class="optionDescription">
-                        <h4>Food Concerns</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quasi perspiciatis eligendi totam placeat iusto, alias quos, mollitia omnis exercitationem repellat adipisci sequi fugit ratione quisquam eveniet vero labore quas!</p>
-                    </div>
-                    <ul class="options">
-                            <!-- class="healthLabels" -->
-                        <li>
-                            <input type="checkbox" id="vegan" class="health" name="vegan" value="vegan">        
-                            <label for="vegan">Vegan</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="vegetarian" class="health" name="vegetarian" value="vegetarian">
-                            <label for="vegetarian">Vegetarian</label>
-                        </li>
-                        <li>   
-                            <input type="checkbox" id="peanutFree" class="health" name="peanutFree" value="peanut-free">
-                            <label for="peanutFree">Peanut Free</label>
-                        </li>
-                        <li>  
-                            <input type="checkbox" id="treeNutFree" class="health" name="treeNutFree" value="tree-nut-free">
-                            <label for="treeNutFree">Tree Nut Free</label>
-                        </li>
-                        <!-- class="health" -->
-                        <li>    
-                            <input type="checkbox" id="sugarConscious" class="health" name="sugarConscious" value="sugar-conscious">
-                            <label for="sugarConscious">Sugar Conscious</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="alcoholFree" class="health" name="alcoholFree" value="alcohol-free">
-                            <label for="alcoholFree">Alcohol Free</label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="submitButton">
-                <button>Take Me on a Trip</button>
-            </div>
-        </form>
+            </form>
+        </section>
         <div class="resultsWrapper contentWrapper">
             <h3 class="resultsHeading"></h3>
             <ol class="recipeResults"></ol>

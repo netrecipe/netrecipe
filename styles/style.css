@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Play:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap");
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block;
 }
@@ -189,8 +190,23 @@ body {
   text-shadow: 0.1rem 0.1rem 0 #3b2914;
 }
 
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
 .ingredientSection {
   color: #3b2914;
+}
+
+.formSectionDeco {
+  color: #4b3519;
+}
+
+button {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
 }
 
 .resultsWrapper h3 {
@@ -204,6 +220,7 @@ ul, ol {
 
 body {
   height: 100%;
+  padding-bottom: 20px;
 }
 
 img {
@@ -212,7 +229,7 @@ img {
 
 .contentWrapper {
   max-width: 1280px;
-  width: 90%;
+  width: 94%;
   margin: 0 auto;
 }
 
@@ -233,34 +250,51 @@ header {
   margin: 0 auto;
 }
 
-form h3 {
-  padding: 2rem 0 1rem 0;
+.search h3 {
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+form {
+  overflow: hidden;
 }
 
 .formSectionDeco {
   padding: 1rem;
   position: relative;
+  height: 100%;
 }
 
 .userChoices {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
 .dietarySpecifics {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 30%;
+          flex: 1 0 30%;
+  min-width: 280px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
+  padding: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin: 5px;
 }
 
 .submitButton {
@@ -276,20 +310,17 @@ form h3 {
 }
 
 button {
-  margin: 1rem;
-  background-color: #6b261d;
+  margin: 20px;
   border: none;
-  color: white;
   padding: 1rem 1.5rem;
   text-align: center;
-  text-decoration: none;
-  font-size: 1rem;
-  cursor: pointer;
 }
 
 header {
   background: url(../assets/BG_Platters.jpg);
-  background-position: 52% 15%;
+  background-position: 52% 0%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .titleBox {
@@ -300,10 +331,27 @@ header {
   background-color: skyblue;
 }
 
-form {
+.dietSection .formSectionDeco {
+  background-color: mediumaquamarine;
+}
+
+.healthSection .formSectionDeco {
+  background-color: lemonchiffon;
+}
+
+.search {
   background-color: #4b3519;
 }
 
 .formSectionDeco {
   border-radius: 1rem;
+}
+
+button {
+  background-color: #e77d19;
+  border-radius: 1rem;
+}
+
+button {
+  cursor: pointer;
 }
