@@ -9,6 +9,10 @@ body {
     color: $frontColor;
 }
 
+a {
+    text-decoration: none;
+}
+
 .splashTitle,
 .splashSubTitle {
     font-family: "Play", sans-serif;
@@ -18,10 +22,7 @@ body {
 }
 
 .splashSubTitle {
-    font-family: "Play", sans-serif;
-    font-style: oblique;
     color: $accentColor;
-    text-shadow: .1rem .1rem 0 $back2Color;
 }
 
 body {

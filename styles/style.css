@@ -175,6 +175,10 @@ body {
   color: #cfa58c;
 }
 
+a {
+  text-decoration: none;
+}
+
 .splashTitle,
 .splashSubTitle {
   font-family: "Play", sans-serif;
@@ -184,10 +188,7 @@ body {
 }
 
 .splashSubTitle {
-  font-family: "Play", sans-serif;
-  font-style: oblique;
   color: #f5cf25;
-  text-shadow: 0.1rem 0.1rem 0 #3b2914;
 }
 
 body {
@@ -219,7 +220,7 @@ ul, ol {
 }
 
 body {
-  padding-bottom: 20px;
+  position: relative;
 }
 
 img {
@@ -238,7 +239,13 @@ img {
 }
 
 .titleBox {
-  padding: 1rem 0;
+  padding: 1rem;
+}
+
+.innerTitleBox {
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .logoBox {
@@ -250,7 +257,8 @@ img {
   margin: 0 auto;
 }
 
-.search h3 {
+.search h3,
+.results h3 {
   padding: 1rem;
   padding-top: 2rem;
 }
@@ -277,7 +285,7 @@ form {
 }
 
 .dietarySpecifics,
-.recipeResults li {
+.recipeResults .card {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 30%;
           flex: 1 0 30%;
@@ -297,6 +305,10 @@ form {
       -ms-flex-align: stretch;
           align-items: stretch;
   margin: 5px;
+}
+
+.formSectionDeco:first-child {
+  padding-bottom: 2rem;
 }
 
 .recipeResults img {
@@ -358,6 +370,10 @@ header {
 button {
   background-color: #e77d19;
   border-radius: 1rem;
+}
+
+.results {
+  background-color: #3b2914;
 }
 
 button {
