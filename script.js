@@ -98,7 +98,7 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
         // put the recipes onto cards and attach to DOM
         recipeApp.generateCards(recipeApp.hits);
         // give the results a heading
-        $('.resultsHeading').text("My Dining Destination"); 
+        $('.resultsHeading').text("Dining Destinations"); 
     }).catch(result => {
     });    
 }   
@@ -117,27 +117,27 @@ recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
 // restriction classes in our recipe card component.
 recipeApp.restrictionList = [
     {
-        restrictionClass: "veganFlag",
+        restrictionClass: ".veganFlag",
         healthLabel: "Vegan"
     },
     {
-        restrictionClass: "vegetarianFlag",
+        restrictionClass: ".vegetarianFlag",
         healthLabel: "Vegetarian"
     },
     {
-        restrictionClass: "peanutFreeFlag",
+        restrictionClass: ".peanutFreeFlag",
         healthLabel: "Peanut-Free"
     },
     {
-        restrictionClass: "treeNutFreeFlag",
+        restrictionClass: ".treeNutFreeFlag",
         healthLabel: "Tree-Nut-Free"
     },
     {
-        restrictionClass: "sugarConciousFlag",
+        restrictionClass: ".sugarConciousFlag",
         healthLabel: "Sugar-Conscious"
     },
     {
-        restrictionClass: "alcoholFreeFlag",
+        restrictionClass: ".alcoholFreeFlag",
         healthLabel: "Alcohol-Free"
     },
 ];
@@ -161,10 +161,10 @@ recipeApp.filterHealthRestrictions = (currentRecipeHit) => {
 // assigns a class to whichever recipe flags are checked in the 
 // current recipe's array of healthLabels.
 //================================================================
-recipeApp.applyHealthLabel = (cardComponent, currentRecipeHit) => {
+recipeApp.applyHealthLabel = ($cardComponent, currentRecipeHit) => {
     const matchedRestrictionsArray = recipeApp.filterHealthRestrictions(currentRecipeHit);
     matchedRestrictionsArray.forEach(restriction => {
-        $(cardComponent).find(restriction.restrictionClass).addClass("highlightFlag")
+        $cardComponent.find(restriction.restrictionClass).addClass("highlightFlag").attr("aria-hidden", "false");
     })
 }
 
@@ -181,9 +181,10 @@ recipeApp.buildCardElement = (recipeHit) => {
         recipeHit.dietLabels = ['']
     }
     // scoop all of the recipe's diet labels into a string of list items
-    const cardDietLabelsString = recipeHit.dietLabels.reduce((acc, label) => {
-        return acc + `<li>${label}</li>`
-    });
+    const cardDietLabelsString = recipeHit.dietLabels.map(label => {
+        console.log(label);
+        return `<li>${label}</li>`;
+    }).join('');
 
 
     // template
@@ -193,18 +194,18 @@ recipeApp.buildCardElement = (recipeHit) => {
             <div class="recipeImageBox">
                 <img src=${cardImage} alt=${cardImageAltText}>
             </div>
-            <p><a href="${cardURL}" target="window">${cardRecipeName}</a><p>
+            <p><a href="${cardURL}" target="window">${cardRecipeName}</a></p>
             <div>
                 <ul class="dietaryList">
                     ${cardDietLabelsString}
                 </ul>
                 <ul class="concernsList">
-                    <li class="veganFlag">Vegan</li>
-                    <li class="vegetarianFlag">Vegetarian</li>
-                    <li class="peanutFreeFlag">Peanut-Free</li>
-                    <li class="treeNutFreeFlag">Tree-Nut-Free</li>
-                    <li class="sugarConsciousFlag">Sugar-Conscious</li>
-                    <li class="alcoholFreeFlag">Alcohol-Free</li>
+                    <li class="veganFlag" aria-hidden>Vegan</li>
+                    <li class="vegetarianFlag" aria-hidden="true">Vegetarian</li>
+                    <li class="peanutFreeFlag" aria-hidden="true">Peanut-Free</li>
+                    <li class="treeNutFreeFlag" aria-hidden="true">Tree-Nut-Free</li>
+                    <li class="sugarConsciousFlag" aria-hidden="true">Sugar-Conscious</li>
+                    <li class="alcoholFreeFlag" aria-hidden="true">Alcohol-Free</li>
                 </ul>
             </div>
         </li>

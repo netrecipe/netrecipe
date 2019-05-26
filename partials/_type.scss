@@ -11,6 +11,7 @@ body {
 
 a {
     text-decoration: none;
+    color: $themeColor;
 }
 
 .splashTitle,
@@ -45,4 +46,14 @@ button {
 
 .resultsWrapper h3 {
     color: $frontColor;
+}
+
+.concernsList li {
+    font-weight: lighter;
+    color: desaturate($frontColor, 50%);
+}
+.dietaryList,
+.concernsList li.highlightFlag {
+    font-weight: bold;
+    color: $accentColor;
 }

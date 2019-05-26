@@ -177,6 +177,7 @@ body {
 
 a {
   text-decoration: none;
+  color: #e77d19;
 }
 
 .splashTitle,
@@ -212,6 +213,17 @@ button {
 
 .resultsWrapper h3 {
   color: #cfa58c;
+}
+
+.concernsList li {
+  font-weight: lighter;
+  color: #aeaeae;
+}
+
+.dietaryList,
+.concernsList li.highlightFlag {
+  font-weight: bold;
+  color: #f5cf25;
 }
 
 ul, ol {
@@ -334,6 +346,14 @@ button {
   margin: 20px auto;
   padding: 1rem 1.5rem;
   text-align: center;
+}
+
+.card img {
+  height: 300px;
+}
+
+html {
+  background: #3b2914;
 }
 
 header {
