@@ -57,4 +57,9 @@ button {
 .concernsList li.highlightFlag {
     font-weight: bold;
     color: $accentColor;
+    text-decoration: none;
+}
+
+.card .cardTitle {
+    font-size: 1.2rem;
 }

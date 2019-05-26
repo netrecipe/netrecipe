@@ -57,7 +57,7 @@ $(function (){
         if (recipeApp.dietLabel === "noValue") {
             recipeApp.dietLabel = undefined;
         }
-        
+
         recipeApp.dietArray.push(recipeApp.dietLabel);
         
         
@@ -205,7 +205,7 @@ $(function (){
                     <img src=${cardImage} alt=${cardImageAltText}>
                 </div>
                 <div class="cardTextWrapper">
-                    <p><a href="${cardURL}" target="window">${cardRecipeName}</a></p>
+                    <p><a href="${cardURL}" class="cardTitle" target="window">${cardRecipeName}</a></p>
                     <ul class="dietaryList">
                         ${cardDietLabelsString}
                     </ul>
