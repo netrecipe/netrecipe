@@ -47,37 +47,47 @@ $(function (){
         // =========================================================================================
         // Get values for 'diet' radio buttons
         recipeApp.dietArray = [];
-
+        
         recipeApp.dietLabel = $(`input.diet[type=radio]:checked`).val();
-        recipeApp.dietArray.push(recipeApp.dietLabel);
 
+        // radio button on form gives user an opportunity to change mind and 
+        // choose a "deselect" button
+        // we reset this value to undefined before pushing tot he dietArray
+        // so that the ajax call will ignore the dietLabel parameter
+        if (recipeApp.dietLabel === "noValue") {
+            recipeApp.dietLabel = undefined;
+        }
+        
+        recipeApp.dietArray.push(recipeApp.dietLabel);
+        
         
         // =========================================================================================
-
-
+        
+        
         // =========================================================================================
         // CHECKBOXES - HEALTH
         // =========================================================================================
-
+        
         // get values from checkboxes and push them to app array
-
+        
         const healthElements = $(`input.health[type=checkbox]:checked`);  
         recipeApp.healthArray = [];
-
+        
         for (let i = 0; i < healthElements.length; i++){
             recipeApp.healthArray.push($(healthElements[i]).val());
         }
-
+        
         // =========================================================================================
         recipeApp.hits = recipeApp.getRecipes(recipeApp.mainIngredientValue, recipeApp.dietArray, recipeApp.healthArray);
-
         
-
+        
+        
     })
-
-//=================================================================================================
-// END OF SUBMIT EVENT
-//=================================================================================================
+    
+    
+    //=================================================================================================
+    // END OF SUBMIT EVENT
+    //=================================================================================================
     recipeApp.getRecipes = function(mainIngredient, dietArray, healthArray){
         $.ajax({
             url: "https://api.edamam.com/search",
