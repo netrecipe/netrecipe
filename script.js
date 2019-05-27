@@ -109,6 +109,9 @@ $(function (){
             recipeApp.generateCards(recipeApp.hits);
             // give the results a heading
             $('.resultsHeading').text("Dining Destinations"); 
+            $(`html, body`).animate({
+                scrollTop: $('#contentDisplay').offset().top + $('form').height()
+            }, 100);
         }).catch(result => {
         });    
     }   
